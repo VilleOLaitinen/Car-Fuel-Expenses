@@ -3,7 +3,11 @@ import { useContext } from "react"
 
 const Totalexpenses = (props) => {
     const { expences } = useContext(ExpenseContext)
-    const totalsum = expences.reduce((sum, expense) => parseInt(sum) + parseInt(expense.price), 0)
+    const totalsum = Math.round(expences.reduce((sum, expense) => parseFloat(sum) + parseFloat(expense.price), 0) * 100) / 100
+    const totalLiters = Math.round(expences.reduce((liters, expense) => parseFloat(liters) + parseFloat(expense.liters), 0) * 100) / 100
+    const totalDistance = Math.round(expences.reduce((distance, expense) => parseFloat(distance) + parseFloat(expense.distance), 0) * 100) / 100
+    const averageExpence = Math.round(100 * totalsum / totalDistance * 100) / 100
+    const averageConsumption = Math.round(100 * totalLiters / totalDistance * 100) / 100
 
     if (expences.length === 0) {
         return (
@@ -13,7 +17,11 @@ const Totalexpenses = (props) => {
 
     return (
         <>
-            <p>Total price: {totalsum}</p>
+            <p>Total sum in euros: {totalsum} €</p>
+            <p>Total consumption in liters: {totalLiters} L</p>
+            <p>Total distance: {totalDistance} km</p>
+            <p>Average expenses per 100 km: {averageExpence} € </p>
+            <p>Average consumption per 100 km: {averageConsumption} L</p>
         </>
     )
 
