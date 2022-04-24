@@ -32,27 +32,29 @@ const Expenseform = (props) => {
 
     return (
         <form>
-            <label>
-                Car name:
-                <input value={name} onChange={handleNameChange} />
-            </label>
-            <br />
-            <label>
-                Liters:
-                <input value={liters} onChange={handleLiterChange} />
-            </label>
-            <br />
-            <label>
-                Price:
-                <input value={price} onChange={handlePriceChange} />
-            </label>
-            <br />
-            <label>
-                Distance:
-                <input value={distance} onChange={handleDistanceChange} />
-            </label>
-            <br />
-            <button type="submit">Add Refuel Expense</button>
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Car name:</th>
+                        <td><input value={name} onChange={handleNameChange} /></td>
+                    </tr>
+                    <tr>
+                        <th>Liters:</th>
+                        <td><input value={liters} onChange={handleLiterChange} /></td>
+                    </tr>
+                    <tr>
+                        <th>Price:</th>
+                        <td><input value={price} onChange={handlePriceChange} /></td>
+                    </tr>
+                    <tr>
+                        <th>Distance:</th>
+                        <td><input value={distance} onChange={handleDistanceChange} /></td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">Add Refuel Expense</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </form>
     )
 }

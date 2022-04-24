@@ -8,14 +8,16 @@ const App = (props) => {
   const [liters, setLiters] = useState('')
   const [distance, setDistance] = useState('')
   const [price, setPrice] = useState('')
+  const [expences, setExpences] = useState([])
 
   return (
     <div>
       <ExpenseContext.Provider value={{
-        name, setName, liters, setLiters, distance, setDistance, price, setPrice
+        name, setName, liters, setLiters, distance, setDistance, price, setPrice, expences, setExpences
       }}>
         <Header header='Car fuel expenses' />
         <Expenseform />
+        <Header header='Total expenses' />
       </ExpenseContext.Provider>
     </div >
   )
