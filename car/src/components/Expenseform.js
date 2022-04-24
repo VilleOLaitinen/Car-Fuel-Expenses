@@ -10,8 +10,26 @@ const Expenseform = (props) => {
         price,
         setPrice,
         distance,
-        setDistance
+        setDistance,
+        expences,
+        setExpences
     } = useContext(ExpenseContext)
+
+    const addExpense = (event) => {
+        event.preventDefault()
+        const expenceObject = {
+            name: name,
+            liters: liters,
+            price: price,
+            distance: distance
+        }
+
+        setExpences(expences.concat(expenceObject))
+        setName('')
+        setPrice('')
+        setDistance('')
+        setLiters('')
+    }
 
     const handleNameChange = (event) => {
         setName(event.target.value)
@@ -31,7 +49,7 @@ const Expenseform = (props) => {
 
 
     return (
-        <form>
+        <form onSubmit={addExpense}>
             <table>
                 <tbody>
                     <tr>

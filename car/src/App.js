@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Header from './components/Header'
 import Expenseform from './components/Expenseform'
 import { ExpenseContext } from './Contexts/ExpenseContext'
+import Totalexpenses from './components/Totalexpenses'
 
 const App = (props) => {
   const [name, setName] = useState('')
@@ -18,6 +19,7 @@ const App = (props) => {
         <Header header='Car fuel expenses' />
         <Expenseform />
         <Header header='Total expenses' />
+        <Totalexpenses />
       </ExpenseContext.Provider>
     </div >
   )
