@@ -1,6 +1,3 @@
-import { ExpenseContext } from "../Contexts/ExpenseContext"
-import { useContext } from "react"
-
 const Carexpenses = ({ expence }) => {
 
     return (
