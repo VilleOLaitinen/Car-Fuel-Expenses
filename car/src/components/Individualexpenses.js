@@ -13,11 +13,21 @@ const Individualexpenses = (props) => {
 
 
     return (
-        <ul>
-            {expences.map(expence =>
-                <Carexpenses expence={expence} />
-            )}
-        </ul>
+        <table>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Liters</th>
+                    <th>Distance</th>
+                    <th>Avg €/100km</th>
+                    <th>Avg L/100km</th>
+                </tr>
+                {expences.map(expence =>
+                    <Carexpenses expence={expence} />
+                )}
+            </tbody>
+        </table>
     )
 }
 

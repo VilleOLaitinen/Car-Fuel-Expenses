@@ -19,12 +19,26 @@ const Expenseform = (props) => {
         event.preventDefault()
         const expenceObject = {
             name: name,
-            liters: liters,
-            price: price,
-            distance: distance
+            liters: Math.round(parseFloat(liters) * 100) / 100,
+            price: Math.round(parseFloat(price) * 100) / 100,
+            distance: Math.round(parseFloat(distance) * 100) / 100
         }
 
-        setExpences(expences.concat(expenceObject))
+        const carIndex = expences.findIndex(expence => {
+            return expence.name === name
+        })
+
+        if (carIndex === -1) {
+            setExpences(expences.concat(expenceObject))
+        } else {
+            const expencesCopy = expences.slice()
+            expencesCopy[carIndex].liters = Math.round((parseFloat(expencesCopy[carIndex].liters) + parseFloat(liters)) * 100) / 100
+            expencesCopy[carIndex].price = Math.round((parseFloat(expencesCopy[carIndex].price) + parseFloat(price)) * 100) / 100
+            expencesCopy[carIndex].distance = Math.round((parseFloat(expencesCopy[carIndex].distance) + parseFloat(distance)) * 100) / 100
+
+            setExpences(expencesCopy)
+        }
+
         setName('')
         setPrice('')
         setDistance('')

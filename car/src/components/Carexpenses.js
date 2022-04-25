@@ -4,9 +4,14 @@ import { useContext } from "react"
 const Carexpenses = ({ expence }) => {
 
     return (
-        <li>
-            <p>test</p>
-        </li>
+        <tr>
+            <td>{expence.name}</td>
+            <td>{expence.price}</td>
+            <td>{expence.liters}</td>
+            <td>{expence.distance}</td>
+            <td>{Math.round(100 * expence.price / expence.distance * 100) / 100}</td>
+            <td>{Math.round(100 * expence.liters / expence.distance * 100) / 100}</td>
+        </tr>
     )
 }
 
