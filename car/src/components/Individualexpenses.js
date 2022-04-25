@@ -24,7 +24,7 @@ const Individualexpenses = (props) => {
                     <th>Avg L/100km</th>
                 </tr>
                 {expences.map(expence =>
-                    <Carexpenses expence={expence} />
+                    <Carexpenses key={expence.id} expence={expence} />
                 )}
             </tbody>
         </table>

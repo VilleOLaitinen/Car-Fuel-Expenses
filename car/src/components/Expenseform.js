@@ -21,7 +21,8 @@ const Expenseform = (props) => {
             name: name,
             liters: Math.round(parseFloat(liters) * 100) / 100,
             price: Math.round(parseFloat(price) * 100) / 100,
-            distance: Math.round(parseFloat(distance) * 100) / 100
+            distance: Math.round(parseFloat(distance) * 100) / 100,
+            id: expences.length + 1
         }
 
         const carIndex = expences.findIndex(expence => {
