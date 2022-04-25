@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Expenseform from './components/Expenseform'
 import { ExpenseContext } from './Contexts/ExpenseContext'
 import Totalexpenses from './components/Totalexpenses'
+import Individualexpenses from './components/Individualexpenses'
 
 const App = (props) => {
   const [name, setName] = useState('')
@@ -20,6 +21,8 @@ const App = (props) => {
         <Expenseform />
         <Header header='Total expenses' />
         <Totalexpenses />
+        <Header header='Individual expenses' />
+        <Individualexpenses />
       </ExpenseContext.Provider>
     </div >
   )
