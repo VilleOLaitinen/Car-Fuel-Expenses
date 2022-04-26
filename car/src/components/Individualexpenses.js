@@ -1,14 +1,12 @@
-import { ExpenseContext } from "../Contexts/ExpenseContext"
-import { useContext } from "react"
-import Carexpenses from "./Carexpenses"
+import { ExpenseContext } from "../Contexts/ExpenseContext";
+import { useContext } from "react";
+import Carexpenses from "./Carexpenses";
 
 const Individualexpenses = (props) => {
-    const { expences } = useContext(ExpenseContext)
+    const { expences } = useContext(ExpenseContext);
 
     if (expences.length === 0) {
-        return (
-            <p>No expenses added yet</p>
-        )
+        return (<p>No expenses added yet</p>);
     }
 
 
@@ -28,7 +26,7 @@ const Individualexpenses = (props) => {
                 )}
             </tbody>
         </table>
-    )
+    );
 }
 
-export default Individualexpenses
+export default Individualexpenses;

@@ -9,7 +9,7 @@ const Carexpenses = ({ expence }) => {
             <td>{Math.round(100 * expence.price / expence.distance * 100) / 100}</td>
             <td>{Math.round(100 * expence.liters / expence.distance * 100) / 100}</td>
         </tr>
-    )
+    );
 }
 
-export default Carexpenses
+export default Carexpenses;
