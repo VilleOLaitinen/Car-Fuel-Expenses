@@ -1,7 +1,7 @@
 import { ExpenseContext } from "../Contexts/ExpenseContext"
 import { useContext } from "react"
 
-const Expenseform = (props) => {
+const Expenseform = () => {
     const {
         name,
         setName,
@@ -17,27 +17,38 @@ const Expenseform = (props) => {
 
     const addExpense = (event) => {
         event.preventDefault()
-        const expenceObject = {
-            name: name,
-            liters: Math.round(parseFloat(liters) * 100) / 100,
-            price: Math.round(parseFloat(price) * 100) / 100,
-            distance: Math.round(parseFloat(distance) * 100) / 100,
-            id: expences.length + 1
+
+        const isPositiveNumber = (n) => {
+            return !isNaN(parseFloat(n)) && !isNaN(n - 0) && parseFloat(n) > 0;
         }
 
-        const carIndex = expences.findIndex(expence => {
-            return expence.name === name
-        })
+        if (isPositiveNumber(liters) && isPositiveNumber(price) && isPositiveNumber(distance)) {
 
-        if (carIndex === -1) {
-            setExpences(expences.concat(expenceObject))
+            const expenceObject = {
+                name: name,
+                liters: Math.round(parseFloat(liters) * 100) / 100,
+                price: Math.round(parseFloat(price) * 100) / 100,
+                distance: Math.round(parseFloat(distance) * 100) / 100,
+                id: expences.length + 1
+            }
+
+            const carIndex = expences.findIndex(expence => {
+                return expence.name === name
+            })
+
+            if (carIndex === -1) {
+                setExpences(expences.concat(expenceObject))
+            } else {
+                const expencesCopy = expences.slice()
+                expencesCopy[carIndex].liters = Math.round((parseFloat(expencesCopy[carIndex].liters) + parseFloat(liters)) * 100) / 100
+                expencesCopy[carIndex].price = Math.round((parseFloat(expencesCopy[carIndex].price) + parseFloat(price)) * 100) / 100
+                expencesCopy[carIndex].distance = Math.round((parseFloat(expencesCopy[carIndex].distance) + parseFloat(distance)) * 100) / 100
+
+                setExpences(expencesCopy)
+            }
+
         } else {
-            const expencesCopy = expences.slice()
-            expencesCopy[carIndex].liters = Math.round((parseFloat(expencesCopy[carIndex].liters) + parseFloat(liters)) * 100) / 100
-            expencesCopy[carIndex].price = Math.round((parseFloat(expencesCopy[carIndex].price) + parseFloat(price)) * 100) / 100
-            expencesCopy[carIndex].distance = Math.round((parseFloat(expencesCopy[carIndex].distance) + parseFloat(distance)) * 100) / 100
-
-            setExpences(expencesCopy)
+            alert("You must enter proper positive values for liter, price and distance fields!")
         }
 
         setName('')
