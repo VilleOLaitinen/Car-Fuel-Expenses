@@ -15,11 +15,11 @@ const Totalexpenses = () => {
 
     return (
         <>
-            <p>Total sum in euros: {totalsum} €</p>
-            <p>Total consumption in liters: {totalLiters} L</p>
-            <p>Total distance: {totalDistance} km</p>
-            <p>Average expenses per 100 km: {averageExpence} € </p>
-            <p>Average consumption per 100 km: {averageConsumption} L</p>
+            <p class='border-bottom'>Total sum in euros: {totalsum} €</p>
+            <p class='border-bottom'>Total consumption in liters: {totalLiters} L</p>
+            <p class='border-bottom'>Total distance: {totalDistance} km</p>
+            <p class='border-bottom'>Average expenses per 100 km: {averageExpence} € </p>
+            <p class='border-bottom'>Average consumption per 100 km: {averageConsumption} L</p>
         </>
     );
 
