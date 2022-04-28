@@ -11,9 +11,9 @@ const Individualexpenses = (props) => {
 
 
     return (
-        <table>
+        <table class='list'>
             <tbody>
-                <tr>
+                <tr class='border-bottom'>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Liters</th>

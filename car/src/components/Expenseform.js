@@ -97,7 +97,7 @@ const Expenseform = () => {
                         <td>km</td>
                     </tr>
                     <tr>
-                        <td><button type="submit">Add Refuel Expense</button></td>
+                        <td><button class='btn' type="submit">Add Refuel Expense</button></td>
                     </tr>
                 </tbody>
             </table>
