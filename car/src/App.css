@@ -63,6 +63,10 @@ input[type='number'] {
   border-bottom: 3px solid #9c88ff;
 }
 
+.border-bottom th {
+  padding: 5px;
+}
+
 @media (max-width: 320px) {
   .container {
     width: 300px;
